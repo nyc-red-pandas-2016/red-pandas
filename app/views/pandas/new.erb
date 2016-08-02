@@ -1,0 +1,18 @@
+<div class="">
+
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <h3>Create a new Panda</h3>
+
+  <form class="" action="/pandas" method="post">
+    <label for="panda_name">Name</label>
+    <input type="text" name="panda[name]" value="">
+    <input type="submit" value="Add">
+  </form>
+</div>

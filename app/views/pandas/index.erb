@@ -1,0 +1,13 @@
+<div class="container">
+  <h3>Welcome to Panda Land</h3>
+
+  <div class="">
+    <ul>
+      <% @pandas.each do |panda| %>
+        <li><%= panda.name %> <a href="/pandas/<%= panda.id %>">Show</a></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <a href="/pandas/new">Create a new Panda</a>
+</div>
