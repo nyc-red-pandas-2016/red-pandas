@@ -10,7 +10,8 @@ end
 
 
 get '/pandas/:id' do
-  @panda = 
+  @panda = Panda.find(params[:id])
+  erb :'pandas/show'
 end
 
 post '/pandas' do
