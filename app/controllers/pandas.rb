@@ -1,15 +1,18 @@
 get '/' do
+  require_user
   @pandas  = Panda.all
   erb :'pandas/index'
 end
 
 
 get '/pandas/new' do
+  require_user
   erb :'pandas/new'
 end
 
 
 get '/pandas/:id' do
+  require_users
   @panda = Panda.find(params[:id])
   erb :'pandas/show'
 end

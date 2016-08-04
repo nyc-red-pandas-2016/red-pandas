@@ -20,8 +20,13 @@
 <body>
 
   <ul>
-    <li>Home</li>
-    <li>About</li>
+    <% if current_user %>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users/logout">Log Out</a></li>
+    <%else %>
+      <li><a href="/users/new">Register</a></li>
+      <li><a href="/users/login">Log In</a></li>
+    <% end %>
   </ul>
 
   <%= yield %>
