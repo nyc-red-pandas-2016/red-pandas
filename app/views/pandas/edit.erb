@@ -1,0 +1,25 @@
+
+  <div class="container">
+
+    <% if @errors %>
+      <ul>
+        <% @errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <h3>Update Info</h3>
+
+    <form class="" action="/pandas/<%= @panda.id%>" method="post">
+      <input type="hidden" name="_method" value="put">
+
+      <label for="panda_name">Name</label>
+      <input type="text" id="panda_name" name="panda[name]" value="<%= @panda.name%>">
+
+      <label for="home_town">Home Town</label>
+      <input type="text" id="home_town" name="panda[home_town]" value="<%= @panda.home_town%>">
+
+      <input type="submit" value="Update">
+    </form>
+  </div>

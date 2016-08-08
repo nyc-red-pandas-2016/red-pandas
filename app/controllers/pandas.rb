@@ -26,3 +26,15 @@ post '/pandas' do
     erb :'pandas/new'
   end
 end
+
+get '/pandas/:id/edit' do
+  @panda = Panda.find_by(id: params[:id])
+  erb :'pandas/edit'
+end
+
+
+put '/pandas/:id' do
+  panda = Panda.find(params[:id])
+  panda.update(params[:panda])
+  redirect "/pandas/#{panda.id}"
+end

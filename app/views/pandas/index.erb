@@ -1,13 +1,16 @@
 <div class="container">
   <h3>Welcome to Panda Land</h3>
+  <div class="left">
+    <img src="https://lh6.ggpht.com/X9OG3iLeu8W9mrfnVF109EmhhEcVf7ZOKg0i6rl_TNqmihxfwlsoJLRqpWEcVDCNnQ=h400" alt="pandas" />
+  </div>
+    <a href="/pandas/new">Create a new Panda</a>
 
-  <div class="">
+  <div class="pandas">
     <ul>
       <% @pandas.each do |panda| %>
-        <li><%= panda.name %> <a href="/pandas/<%= panda.id %>">Show</a></li>
+        <li><%= panda.name %> <a href="/pandas/<%= panda.id %>">Show</a> <a href="/pandas/<%= panda.id%>/edit">Edit</a></li>
       <% end %>
     </ul>
   </div>
 
-  <a href="/pandas/new">Create a new Panda</a>
 </div>
