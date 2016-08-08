@@ -12,7 +12,7 @@ end
 
 
 get '/pandas/:id' do
-  require_users
+  require_user
   @panda = Panda.find(params[:id])
   erb :'pandas/show'
 end

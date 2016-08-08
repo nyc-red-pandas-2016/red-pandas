@@ -1,5 +1,13 @@
 <div class="container">
-    <form class="" action="/users" method="post">
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+    <form class="" action="/users/login" method="post">
         <label for="user[username]">Username</label>
         <input type="text" name="user[username]" value="">
 

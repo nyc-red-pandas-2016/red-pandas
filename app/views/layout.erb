@@ -20,7 +20,7 @@
 <body>
 
   <ul>
-    <% if current_user %>
+    <% if !login? %>
       <li><a href="/">Home</a></li>
       <li><a href="/users/logout">Log Out</a></li>
     <%else %>
