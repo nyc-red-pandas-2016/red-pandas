@@ -14,7 +14,11 @@ end
 get '/pandas/:id' do
   require_user
   @panda = Panda.find(params[:id])
-  erb :'pandas/show'
+  if request.xhr?
+    erb :'pandas/show', layout: false
+  else
+    erb :'pandas/show'
+  end
 end
 
 post '/pandas' do
@@ -38,3 +42,4 @@ put '/pandas/:id' do
   panda.update(params[:panda])
   redirect "/pandas/#{panda.id}"
 end
+

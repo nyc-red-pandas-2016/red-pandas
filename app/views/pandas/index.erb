@@ -8,9 +8,10 @@
   <div class="pandas">
     <ul>
       <% @pandas.each do |panda| %>
-        <li><%= panda.name %> <a href="/pandas/<%= panda.id %>">Show</a> <a href="/pandas/<%= panda.id%>/edit">Edit</a></li>
+        <li><%= panda.name %> <a href="/pandas/<%= panda.id %>">Show</a> <a class="panda-show-link"  href="/pandas/<%= panda.id %>">Async Show</a> <a href="/pandas/<%= panda.id%>/edit">Edit</a>
+        <div class='async-panda-show-pane'></div>
+        </li>
       <% end %>
     </ul>
   </div>
-
 </div>
