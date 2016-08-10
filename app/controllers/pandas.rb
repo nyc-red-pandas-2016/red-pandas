@@ -24,7 +24,11 @@ end
 post '/pandas' do
   @panda = Panda.new(params[:panda])
   if @panda.save
-    redirect '/'
+    if request.xhr?
+      erb :'/pandas/_panda_list_item', locals: {panda: @panda}, layout: false
+    else
+      redirect '/'
+    end
   else
     @errors = @panda.errors.full_messages
     erb :'pandas/new'

@@ -1,6 +1,13 @@
 $(document).ready(function() {
+  // NON DELEGATION VERSION
   // bind click listeners to every element with the class `panda-show-link`
-  $(".panda-show-link").on("click", function(e) {
+  // $(".panda-show-link").on("click", function(e) {
+
+  // EVENT DELEGATION VERSION
+  // binds a single click listener to the panda-list element which is on the page
+  // to begin with, but will only fire the callback in the case that a 
+  // .panda-show-link within it is the event target
+  $("#panda-list").on("click", ".panda-show-link", function(e) {
     // prevent the default browser action for clicking a link
     e.preventDefault();
 
@@ -22,4 +29,15 @@ $(document).ready(function() {
       $originalLink.hide();
     });
   });
+
+  $("#new-panda-form").submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: $(e.target).attr("action"),
+      type: $(e.target).attr("method"),
+      data: $(e.target).serialize()
+    }).done(function(response) {
+      $("#panda-list").append(response);
+    });
+  })
 });
